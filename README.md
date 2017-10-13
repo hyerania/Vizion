@@ -15,3 +15,5 @@ The objectives of this project include creating a door locking/unlocking system 
 - Allow the user to specify which people the door should automatically unlock for.
 - Maintain a log over a specified set of time that indicates everyone who has been to the door and everyone who has been let in.
 
+## Contributing
+To contribute to this project, follow the guide in [CONTRIBUTING.md](vizion/CONTRIBUTING.md)
