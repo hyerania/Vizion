@@ -59,4 +59,5 @@ Next time you want to add some code start by pulling the most recent version (in
 Then either make a new branch `git branch [branchname]` or merge master into your work branch `git checkout [myname]-work` `git merge master`
 
 Hint: you don't type the []
-Hint 2: If there are any conflicts while merging code (the merge command fails and freaks out because two people changed the same thing) don't freak out. Just Google how to resolve git merge conflicts in the terminal and there should be planty of helpful resources.
+
+Hint 2: If there are any conflicts while merging code (the merge command fails and freaks out because two people changed the same thing) don't freak out. Just Google how to resolve git merge conflicts in the terminal and there should be plenty of helpful resources.
