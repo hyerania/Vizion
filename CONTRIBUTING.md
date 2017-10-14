@@ -27,7 +27,11 @@ Run the server
 ```
 python manage.py runserver
 ``` 
-Go to the link that the command line now says is hosting the server to verify that it is running locally. If you want to be able to access it from a different computer change the command to `python manage.py runserver [your_machines_ip_addr]:8000` Note you might have to disable the firewall on your machine (Google is helpful).
+Go to the link that the command line now says is hosting the server to verify that it is running locally. If you want to be able to access it from a different computer change the command to 
+```
+python manage.py runserver [your_machines_ip_addr]:8000
+```
+Note you might have to disable the firewall on your machine (Google is helpful).
 
 ### Make changes to the code
 Since there is four of us, the best thing to do is each work on our own branch. Find a quick git tutorial to learn what these different terms mean. It can be somewhat complicated, but is EXTREMLY useful and good to know.
@@ -55,3 +59,4 @@ Next time you want to add some code start by pulling the most recent version (in
 Then either make a new branch `git branch [branchname]` or merge master into your work branch `git checkout [myname]-work` `git merge master`
 
 Hint: you don't type the []
+Hint 2: If there are any conflicts while merging code (the merge command fails and freaks out because two people changed the same thing) don't freak out. Just Google how to resolve git merge conflicts in the terminal and there should be planty of helpful resources.
