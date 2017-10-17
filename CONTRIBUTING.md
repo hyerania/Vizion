@@ -23,6 +23,11 @@ Activate virtualenv `source venv/bin/activate` on Linux and `venv/bin/activate.b
 
 Go into the source code folder `cd src` 
 
+Apply migrations
+```
+python manage.py migrate
+```
+
 Run the server
 ```
 python manage.py runserver
