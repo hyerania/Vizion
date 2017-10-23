@@ -19,7 +19,13 @@ git clone https://github.tamu.edu/russell-pier/vizion.git
 ### Set up the backend
 Go into repo `cd vizion`
 
-Activate virtualenv `source venv/bin/activate` on Linux and `venv/bin/activate.bat` for Windows (I think.)
+Activate virtualenv `source venv/bin/activate` on Linux and 
+```
+cd venvw/Scripts
+activate.bat
+cd ../..
+```
+for Windows (I think.)
 
 Go into the source code folder `cd src` 
 
