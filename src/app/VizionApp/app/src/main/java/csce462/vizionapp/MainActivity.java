@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button sendButton;
     private RequestQueue mRequestQueue;
     private StringRequest stringRequest;
-    private String url = "http://www.mocky.io/v2/59f3208e3200004309a624e5";
+    private String url = "http://10.230.201.34:8000/turnonled/";
 
     private DiskBasedCache mCache;
     private com.android.volley.Network mNetwork;
