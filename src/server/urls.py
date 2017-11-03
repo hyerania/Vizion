@@ -17,9 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.http import HttpResponse
 
-from api.led import turn_on_led
+from api.led import turn_on_led, turn_off_led
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^turnonled/$', turn_on_led, name="Turn On LED"),
+    url(r'^turnoffled/$', turn_off_led, name="Turn Off LED"),
 ]
