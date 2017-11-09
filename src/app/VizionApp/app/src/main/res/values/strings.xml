@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VizionApp</string>
+    <string name="url_request">Please enter URL link</string>
 </resources>

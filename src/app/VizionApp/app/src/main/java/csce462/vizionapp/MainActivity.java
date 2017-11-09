@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,28 +23,31 @@ public class MainActivity extends AppCompatActivity {
     private Button sendButton;
     private RequestQueue mRequestQueue;
     private StringRequest stringRequest;
-    private String url = "http://10.230.201.34:8000/turnonled/";
+    EditText etURL;
+//    private String url = "http://10.230.201.34:8000/turnonled/";
 
     private DiskBasedCache mCache;
     private com.android.volley.Network mNetwork;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        etURL = (EditText) findViewById(R.id.etURL);
         sendButton = (Button) findViewById(R.id.sendButton);
         sendButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
                 //Send request and print the response using volley library
-                sendRequestAndPrintResponse();
+                String url = etURL.getText().toString();
+                sendRequestAndPrintResponse(url);
 
             }
         });
     }
 
-    private void sendRequestAndPrintResponse() {
+    private void sendRequestAndPrintResponse(String url) {
 //        mRequestQueue = Volley.newRequestQueue(this);
 //        mCache = new DiskBasedCache(getCacheDir(), 4*1024*1024);
 //        mNetwork = new BasicNetwork(new HurlStack());
