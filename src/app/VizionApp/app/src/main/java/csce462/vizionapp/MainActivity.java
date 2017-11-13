@@ -1,5 +1,6 @@
 package csce462.vizionapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private StringRequest stringRequest;
     EditText etURL;
 //    private String url = "http://10.230.201.34:8000/turnonled/";
-
     private DiskBasedCache mCache;
     private com.android.volley.Network mNetwork;
 
+    private Button btnTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 //Send request and print the response using volley library
                 String url = etURL.getText().toString();
                 sendRequestAndPrintResponse(url);
+            }
+        });
 
+        btnTest = (Button) findViewById(R.id.btnTest);
+        btnTest.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                startActivity(intent);
             }
         });
     }
