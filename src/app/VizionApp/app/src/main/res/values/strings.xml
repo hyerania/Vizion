@@ -5,6 +5,7 @@
     <string name="dash_board">My Doors</string>
     <string name="add_Doors">Add Door</string>
     <string name="users_access">Access</string>
+    <string name="add_users">Add Users</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

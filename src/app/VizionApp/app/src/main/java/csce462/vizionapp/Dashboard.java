@@ -7,14 +7,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
     private Button btnAddDoor;
@@ -46,6 +40,7 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         btnAddDoor = (Button) findViewById(R.id.btnAddDoor);
         btnAddDoor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -78,7 +73,7 @@ public class Dashboard extends AppCompatActivity {
             View view = getLayoutInflater().inflate(R.layout.custom_layout,null);
 
 //            ImageView mImageView = (ImageView) view.findViewById(R.id.imageView);
-            TextView mTextView = (TextView) view.findViewById(R.id.door_name);
+            TextView mTextView = (TextView) view.findViewById(R.id.user_name);
             TextView mAddressView = (TextView) view.findViewById(R.id.address_name);
 
 //            mImageView.setImageResource(images[0]);

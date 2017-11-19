@@ -27,7 +27,7 @@
         <activity
             android:name=".MainActivity"
             android:label="VizionApp"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Dashboard"
             android:label="@string/dash_board" />
@@ -36,7 +36,8 @@
             android:label="@string/add_Doors" />
         <activity
             android:name=".UsersAccess"
-            android:label="@string/users_access"></activity>
+            android:label="@string/users_access" />
+        <activity android:name=".AddUserAccess"></activity>
     </application>
 
 </manifest>
