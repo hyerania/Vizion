@@ -37,7 +37,9 @@
         <activity
             android:name=".UsersAccess"
             android:label="@string/users_access" />
-        <activity android:name=".AddUserAccess"></activity>
+        <activity
+            android:name=".AddUserAccess"
+            android:label="@string/add_users"></activity>
     </application>
 
 </manifest>
