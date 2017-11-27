@@ -39,7 +39,10 @@
             android:label="@string/users_access" />
         <activity
             android:name=".AddUserAccess"
-            android:label="@string/add_users"></activity>
+            android:label="@string/add_users" />
+        <activity
+            android:name=".Register"
+            android:label="@string/action_register"></activity>
     </application>
 
 </manifest>
