@@ -13,6 +13,7 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
     email = models.EmailField(_('email address'), unique=True)
+	# face_array = getFace(identifier)
 
     # doorlock is ownership of a door
     doorlock = models.IntegerField()
