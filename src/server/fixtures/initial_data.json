@@ -78,7 +78,7 @@
             "email":"tyler.nardecchia@tamu.edu",
             "face_data":"",
             "doorlock":-1,
-            "access_locks":"",
+            "access_locks":"1",
             "groups":[
 
             ],
