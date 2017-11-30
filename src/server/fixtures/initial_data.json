@@ -1,0 +1,106 @@
+[
+  {
+      "model":"server.user",
+      "pk":1,
+      "fields":{
+         "password":"shaun",
+         "last_login":null,
+         "is_superuser":false,
+         "identifier":"s.fattig",
+         "first_name":"Shaun",
+         "last_name":"Fattig",
+         "email":"shaun.fattig@tamu.edu",
+         "face_data":"",
+         "doorlock":-1,
+         "access_locks":"",
+         "groups":[
+
+         ],
+         "user_permissions":[
+
+         ]
+      }
+   },
+   {
+       "model":"server.user",
+       "pk":2,
+       "fields":{
+          "password":"russell",
+          "last_login":null,
+          "is_superuser":false,
+          "identifier":"r.pier",
+          "first_name":"Russell",
+          "last_name":"Pier",
+          "email":"russell.pier@tamu.edu",
+          "face_data":"",
+          "doorlock":-1,
+          "access_locks":"",
+          "groups":[
+
+          ],
+          "user_permissions":[
+
+          ]
+       }
+    },
+    {
+        "model":"server.user",
+        "pk":3,
+        "fields":{
+           "password":"yerania",
+           "last_login":null,
+           "is_superuser":false,
+           "identifier":"y.hernandez",
+           "first_name":"Yerania",
+           "last_name":"Hernandez",
+           "email":"yerania.hernandez@tamu.edu",
+           "face_data":"",
+           "doorlock":-1,
+           "access_locks":"",
+           "groups":[
+
+           ],
+           "user_permissions":[
+
+           ]
+        }
+     },
+     {
+         "model":"server.user",
+         "pk":4,
+         "fields":{
+            "password":"tyler",
+            "last_login":null,
+            "is_superuser":false,
+            "identifier":"t.nardecchia",
+            "first_name":"Tyler",
+            "last_name":"Nardecchia",
+            "email":"tyler.nardecchia@tamu.edu",
+            "face_data":"",
+            "doorlock":-1,
+            "access_locks":"1",
+            "groups":[
+
+            ],
+            "user_permissions":[
+
+            ]
+         }
+      },
+      {
+        "model": "server.lock",
+        "pk": 1,
+        "fields": {
+          "address": "1203 Charles Ct",
+          "location": "Front Door"
+        }
+      },
+      {
+        "model": "server.lock",
+        "pk": 2,
+        "fields": {
+          "address": "Rabi's Office",
+          "location": "Front Door"
+        }
+      }
+]
