@@ -1,31 +1,31 @@
 from django.http import JsonResponse
 from server.models import User, Lock, Transaction
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
 
 def lock_lock():
     #setup pins
-    # GPIO.setmode(GPIO.BOARD)  #physical pin numbering
-    # GPIO.setup(11, GPIO.OUT)  #Setup pin 11 for output mode
-    # my_pwm = GPIO.PWM(11, 50)  #setup pin 11 for 50 Hz signal
-    # my_pwm.start(8)  #Duty Cycle: approximate a signal at 8% of pin output
-    # sleep(1)
-    # #turn off voltages
-    # my_pwm.stop()
-    # GPIO.cleanup()
+    GPIO.setmode(GPIO.BOARD)  #physical pin numbering
+    GPIO.setup(11, GPIO.OUT)  #Setup pin 11 for output mode
+    my_pwm = GPIO.PWM(11, 50)  #setup pin 11 for 50 Hz signal
+    my_pwm.start(8)  #Duty Cycle: approximate a signal at 8% of pin output
+    sleep(1)
+    #turn off voltages
+    my_pwm.stop()
+    GPIO.cleanup()
     return
 
 def unlock_lock():
     #setup pins
-    # GPIO.setmode(GPIO.BOARD)  #physical pin numbering
-    # GPIO.setup(11, GPIO.OUT)  #Setup pin 11 for output mode
-    # my_pwm = GPIO.PWM(11, 50)  #setup pin 11 for 50 Hz signal
-    # my_pwm.start(5)  #Duty Cycle: approximate a signal at 5% of pin output
-    # sleep(1)
-    # #turn off voltages
-    # my_pwm.stop()
-    # GPIO.cleanup()
+    GPIO.setmode(GPIO.BOARD)  #physical pin numbering
+    GPIO.setup(11, GPIO.OUT)  #Setup pin 11 for output mode
+    my_pwm = GPIO.PWM(11, 50)  #setup pin 11 for 50 Hz signal
+    my_pwm.start(5)  #Duty Cycle: approximate a signal at 5% of pin output
+    sleep(1)
+    #turn off voltages
+    my_pwm.stop()
+    GPIO.cleanup()
     return
 
 def lock_door(response):
@@ -146,10 +146,11 @@ def face_lookup(response):
         try_compare = False
 
     if (try_compare):
-        if (requested_lock.id) in recognized_user.access_locks.split(","):
+        if str(requested_lock.id) in recognized_user.access_locks.split(","):
 
             if requested_lock.state == Lock.LOCKED:
-                unlock_lock(requested_lock.id)
+                print("Test")
+                unlock_lock()
                 requested_lock.state = UNLOCKED
                 success = True
         else:
