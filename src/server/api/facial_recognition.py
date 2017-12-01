@@ -2,9 +2,12 @@ from django.http import JsonResponse
 from server.models import User, Lock
 
 def face_lookup(response):
-    # TODO: change to data from the response
-    response_face_id = response.GET['faceid']
-    response_lock_id = response.GET['lockid']
+    try:
+        response_face_id = response.GET['faceid']
+        response_lock_id = response.GET['lockid']
+    except Exception:
+        print(response.GET)
+        return JsonResponse({"error": "invalid json data"})
 
     user_success = False
     username = None

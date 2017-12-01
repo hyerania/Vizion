@@ -24,6 +24,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^turnonled/$', turn_on_led, name="Turn On LED"),
     url(r'^turnoffled/$', turn_off_led, name="Turn Off LED"),
-    url(r'^createlock/$', create_lock, name="Create Lock"),
     url(r'^facelookup/$', face_lookup, name="Face Lookup")
 ]
