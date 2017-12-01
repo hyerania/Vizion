@@ -24,6 +24,20 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+class UserItems{
+    private Integer id;
+    private String userName;
+
+    public UserItems(Integer id, String userName){
+        this.id = id;
+        this.userName = userName;
+    }
+
+    public Integer getId() { return id; }
+    public String getUserName() { return userName; }
+
+}
+
 public class UsersAccess extends AppCompatActivity {
     private Button btnAddUser;
     private Button btnDoorStatus;
@@ -96,10 +110,10 @@ public class UsersAccess extends AppCompatActivity {
                             String state = response.getString("state");
                             setLockState(state);
                             if (state.equals("locked")){
-                                btnDoorStatus.setText("Door Locked");
+                                btnDoorStatus.setText("Locked");
                             }
                             else if (state.equals("unlocked")){
-                                btnDoorStatus.setText("Door Unlocked");
+                                btnDoorStatus.setText("Unlocked");
                             }
                         } catch (JSONException e) {
                             Log.i("UsersAccess: ", "Error: Can't get JSONObject");

@@ -90,8 +90,8 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-//        final String userEmail = getIntent().getStringExtra("currentUserEmail");
-        String userEmail = "tyler.nardecchia@tamu.edu";
+        final String userEmail = getIntent().getStringExtra("currentUserEmail");
+//        String userEmail = "tyler.nardecchia@tamu.edu";
         Log.i(TAG, "Checking current logged in: " + userEmail);
 
         mlistView = (ListView) findViewById(R.id.dashboard_listView);
@@ -152,10 +152,17 @@ public class Dashboard extends AppCompatActivity {
         btnAddDoor = (Button) findViewById(R.id.btnAddDoor);
         btnAddDoor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent addIntent = new Intent(Dashboard.this, AddDoor.class);
-                startActivity(addIntent);
+                buttonAddDoor(btnAddDoor, userEmail);
             }
         });
+    }
+
+    private void buttonAddDoor(Button btnAddDoor, String userEmail){
+        Intent addIntent = new Intent(Dashboard.this, AddDoor.class);
+        Bundle extra = new Bundle();
+        extra.putString("UserEmail", userEmail);
+        addIntent.putExtras(extra);
+        startActivity(addIntent);
     }
 
     private void loadListVIewData(final String userEmail){
