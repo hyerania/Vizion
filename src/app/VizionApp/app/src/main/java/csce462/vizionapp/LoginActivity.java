@@ -71,13 +71,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-//    private static String serverURL = "http://192.168.1.13:8000/logon/";
+    private static String serverURL = "http://192.168.1.19:8000/logon/";
 //    private String checkLogin;
     //2 Parameters: userEmail, userPassword
 
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
+//    private static final String[] DUMMY_CREDENTIALS = new String[]{
+//            "foo@example.com:hello", "bar@example.com:world"
+//    };
 
 
     /**
@@ -338,55 +338,77 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         private final String mEmail;
         private final String mPassword;
         private boolean login_success;
+        private boolean hasRespsonse;
 
         UserLoginTask(String email, String password) {
             mEmail = email;
             mPassword = password;
             login_success = false;
+            hasRespsonse = false;
         }
 
-//        protected Boolean verifyLogin(String mEmail, String mPassword){
-//            String userEmail = mEmail;
-//            String userPassword = mPassword;
-//            String loginURL = serverURL + "?userEmail=" + userEmail + "&userPassword=" + userPassword;
-//            Log.d("LoginChecks: ", "NEW URL: " + loginURL);
-////            final String[] parse = new String[1];
-////            final String loginCheck = "";
-//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, loginURL, null, new Response.Listener<JSONObject>() {
-//                @Override
-//                public void onResponse(JSONObject response) {
-//                    Log.i("LoginChecks: ", "Response: " + response.toString());
-////                    Gson gson = new Gson();
-////                    LoginJSON loginObj = gson.fromJson(response.toString(), LoginJSON.class);
-////                    isLogin[0] = loginObj.getUserLogin();
-////                    parse[0] = response.toString();
-//                    // Process the JSON
-//                    try{
-//                        // Get the JSON array
-//                        login_success = response.getBoolean("login");
-//                        Log.i("LoginChecks: ", "login_success value: " + login_success);
-//
-//                    }catch (JSONException e){
-//                        Log.i("BROKE: ","didn't work");
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    Log.i("LoginChecks: ", "Error: " + error.toString());
-//                }
-//            }){
-//                @Override
-//                public Map<String, String> getHeaders() throws AuthFailureError {
-//                    HashMap<String, String> headers = new HashMap<String, String>();
-//                    headers.put("Content-Type", "application/json; charset=utf-8");
-//                    return headers;
-//                }
-//            };
-//            JsonObjectSingleton.getInstance(LoginActivity.this).addToRequestQueue(jsonObjectRequest);
-//            return login_success;
-//        }
+        public Boolean isLoginSuccess(){
+            return this.login_success;
+        }
+
+        public void setLoginSuccess(Boolean ls){
+            this.login_success = ls;
+        }
+
+        public Boolean hasResponse(){
+            return this.hasRespsonse;
+        }
+
+        public void setHasResponse(Boolean r){
+            this.hasRespsonse = r;
+        }
+
+        protected Boolean verifyLogin(String mEmail, String mPassword){
+            String userEmail = mEmail;
+            String userPassword = mPassword;
+            String loginURL = serverURL + "?userEmail=" + userEmail + "&userPassword=" + userPassword;
+            Log.d("LoginChecks: ", "NEW URL: " + loginURL);
+//            final String[] parse = new String[1];
+//            final String loginCheck = "";
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, loginURL, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    Log.i("LoginChecks: ", "Response: " + response.toString());
+//                    Gson gson = new Gson();
+//                    LoginJSON loginObj = gson.fromJson(response.toString(), LoginJSON.class);
+//                    isLogin[0] = loginObj.getUserLogin();
+//                    parse[0] = response.toString();
+                    // Process the JSON
+                    try{
+                        // Get the JSON array
+                        setLoginSuccess(response.getBoolean("login"));
+                        Log.i("LoginChecks: ", "login_success value: " + isLoginSuccess());
+
+                    }catch (JSONException e){
+                        Log.i("BROKE: ","didn't work");
+                        e.printStackTrace();
+                    }
+                    setHasResponse(true);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.i("LoginChecks: ", "Error: " + error.toString());
+                }
+            }){
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    HashMap<String, String> headers = new HashMap<String, String>();
+                    headers.put("Content-Type", "application/json; charset=utf-8");
+                    return headers;
+                }
+            };
+            JsonObjectSingleton.getInstance(LoginActivity.this).addToRequestQueue(jsonObjectRequest);
+            while(!hasResponse()){
+                continue;
+            }
+            return isLoginSuccess();
+        }
 
         @Override
         protected Boolean doInBackground(Void... params) {
@@ -399,21 +421,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-//            Boolean CHECKIT = verifyLogin(mEmail, mPassword);
+//            for (String credential : DUMMY_CREDENTIALS) {
+//                String[] pieces = credential.split(":");
+//                if (pieces[0].equals(mEmail)) {
+//                    // Account exists, return true if the password matches.
+//                    return pieces[1].equals(mPassword);
+//                }
+//            }
+            Boolean CHECKIT = verifyLogin(mEmail, mPassword);
+            Log.i("Login: ", "CHECKIT Value: " + isLoginSuccess());
 
 
 
 
             // TODO: register the new account here
 //            Log.d("LoginChecks: ", "Value of login:" + CHECKIT);
-            return false; //CHANGED
+            return CHECKIT; //CHANGED
         }
 
         @Override
@@ -425,7 +448,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 finish();
 //                login_success = false;
                 String email = mEmailView.getText().toString();
-                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent myIntent = new Intent(LoginActivity.this, Dashboard.class);
                 myIntent.putExtra("currentUserEmail", email);
                 LoginActivity.this.startActivity(myIntent);
 

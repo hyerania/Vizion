@@ -73,10 +73,18 @@ public class Dashboard extends AppCompatActivity {
 
 
     private List<ListItem> listItems;
-    private static String serverURL = "http://192.168.1.13:8000/getLocks/"; //Returns json (lots of fields)
+    private static String serverURL = "http://192.168.1.19:8000/getLocks/"; //Returns json (lots of fields)
     //Pass in email as parameter, get back JSON of door, location, lock status
 //    MyCustomAdapter customAdaptor = new MyCustomAdapter();
     private MyCustomAdapter customAdapter;
+
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,11 +255,13 @@ public class Dashboard extends AppCompatActivity {
 //            ImageView mImageView = (ImageView) view.findViewById(R.id.imageView);
             TextView mTextView = (TextView) view.findViewById(R.id.user_name);
             TextView mAddressView = (TextView) view.findViewById(R.id.address_name);
+            TextView mStatusView = (TextView) view.findViewById(R.id.door_status);
 
 
 //            mImageView.setImageResource(images[0]);
             mTextView.setText(listItems.get(position).getLocation());
             mAddressView.setText(listItems.get(position).getAddress());
+            mStatusView.setText(listItems.get(position).getStatus());
             return view;
         }
     }

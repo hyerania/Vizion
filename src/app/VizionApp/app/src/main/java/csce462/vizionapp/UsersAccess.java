@@ -30,7 +30,7 @@ public class UsersAccess extends AppCompatActivity {
     ListView mListAccessView;
     // @TODO: Need to select from database and pull data from there
     String[] users = {"Shaun", "Tyler", "Russell", "Yerania", "Random", "Testing"};
-    private static String serverURL = "http://192.168.1.13:8000/";
+    private static String serverURL = "http://192.168.1.19:8000/";
     String lockState;
 
     public String getLockState(){
@@ -41,6 +41,14 @@ public class UsersAccess extends AppCompatActivity {
         this.lockState = ls;
     }
 
+
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +75,7 @@ public class UsersAccess extends AppCompatActivity {
         });
 
         btnDoorStatus = (Button) findViewById(R.id.btnDoorStatus);
+        btnDoorStatus.setText(getLockState());
         btnDoorStatus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String newUrl = "";
