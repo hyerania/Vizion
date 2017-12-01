@@ -5,7 +5,7 @@ def get_locks(response):
     try:
         response_user_email = response.GET['userEmail']
     except Exception:
-        pass
+        return JsonResponse({'error': ex})
 
     lock_ids = None
     locks = []
@@ -30,3 +30,29 @@ def get_locks(response):
 
 
     return JsonResponse({'locks': locks_json})
+
+def add_lock(response):
+    try:
+        response_user_email = response.GET['userEmail']
+        response_location = response.GET['location']
+        response_address = response.GET['address']
+
+        user = User.objects.all().get(email=response_user_email)
+    except Exception as ex:
+        return JsonResponse({'error': ex})
+
+
+
+    new_lock = Lock(
+            location=response_location,
+            address=response_address,
+        )
+
+    user.access_locks.append(new_lock.id)
+
+    print(user.access_locks)
+
+    new_lock.save()
+    user.save()
+
+    return JsonResponse({'success': True})
