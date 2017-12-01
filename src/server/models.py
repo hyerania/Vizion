@@ -33,4 +33,4 @@ class Transaction(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE, related_name='transactions')
     lock = models.ForeignKey('Lock', on_delete=models.CASCADE, related_name='transactions')
     success = models.BooleanField()
-    access_type = models.SmallIntegerField
+    access_type = models.CharField(max_length=40)

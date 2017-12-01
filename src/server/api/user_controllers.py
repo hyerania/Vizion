@@ -12,20 +12,20 @@ def get_locks(response):
     locks_json = []
     try:
         user = User.objects.all().get(email=response_user_email)
-        lock_ids = user.access_locks
+        lock_ids = user.access_locks.split(",")
     except:
         return JsonResponse()
 
     if lock_ids is not None:
         for lock_id in lock_ids:
-            locks.append(Lock.objects.all().get(id=lock_id))
+            locks.append(Lock.objects.all().get(id=int(lock_id)))
 
         for lock in locks:
             locks_json.append({
                 'id': lock.id,
                 'location': lock.location,
                 'address': lock.address,
-                'status': lock.status
+                'state': lock.state
             })
 
 

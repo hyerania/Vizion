@@ -2,10 +2,9 @@ from django.http import JsonResponse
 from server.models import User, Lock
 
 def turn_on_led(response):
-    # code goes here
-    # GPIO.setmode(GPIO.BCM)
-    # GPIO.setup(18, GPIO.OUT)
-    # GPIO.output(18, 1)
+    user = User.objects.all().get(id=4)
+    user.access_locks = "1,2"
+    user.save()
 
     # if the function execute successfully, return true, otherwise return false
     return JsonResponse({'success': True})
