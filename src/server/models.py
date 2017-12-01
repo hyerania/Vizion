@@ -13,11 +13,7 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
     email = models.EmailField(_('email address'), unique=True)
-<<<<<<< HEAD
-	# face_array = getFace(identifier)
-=======
-    face_data = models.TextField(db_column='data', blank=True)
->>>>>>> 79f055df5210baadd8ee720cfbfa9548daf91b3a
+    state = models.CharField(max_length=40, default="unlocked")
 
     # doorlock is ownership of a door
     doorlock = models.IntegerField(blank=True)
@@ -29,6 +25,8 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
 class Lock(models.Model):
     address = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
+    LOCKED = "locked"
+    UNLOCKED = "unlocked"
 
 class Transaction(models.Model):
     date_time = models.DateTimeField(auto_now=True)
