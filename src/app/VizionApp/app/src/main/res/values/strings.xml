@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VizionApp</string>
+    <string name="app_name">Vizion</string>
     <string name="url_request">Please enter URL link</string>
     <string name="title_activity_login">Sign in</string>
     <string name="dash_board">My Doors</string>

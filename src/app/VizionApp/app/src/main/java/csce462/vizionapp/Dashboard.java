@@ -73,7 +73,7 @@ public class Dashboard extends AppCompatActivity {
 
 
     private List<ListItem> listItems;
-    private static String serverURL = "http://192.168.1.19:8000/getLocks/"; //Returns json (lots of fields)
+    private static String serverURL = "http://192.168.43.107:8000/getLocks/"; //Returns json (lots of fields)
     //Pass in email as parameter, get back JSON of door, location, lock status
 //    MyCustomAdapter customAdaptor = new MyCustomAdapter();
     private MyCustomAdapter customAdapter;

@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-    private static String serverURL = "http://192.168.1.19:8000/logon/";
+    private static String serverURL = "http://192.168.43.107:8000/logon/";
 //    private String checkLogin;
     //2 Parameters: userEmail, userPassword
 

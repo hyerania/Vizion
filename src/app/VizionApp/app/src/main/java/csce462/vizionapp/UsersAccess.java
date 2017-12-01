@@ -43,8 +43,8 @@ public class UsersAccess extends AppCompatActivity {
     private Button btnDoorStatus;
     ListView mListAccessView;
     // @TODO: Need to select from database and pull data from there
-    String[] users = {"Shaun", "Tyler", "Russell", "Yerania", "Random", "Testing"};
-    private static String serverURL = "http://192.168.1.19:8000/";
+    String[] users = {"Shaun", "Tyler", "Russell", "Yerania"};
+    private static String serverURL = "http://192.168.43.107:8000/";
     String lockState;
 
     public String getLockState(){
@@ -73,7 +73,6 @@ public class UsersAccess extends AppCompatActivity {
         setLockState(extras.getString("LockStatus"));
         final Integer lockID = extras.getInt("LockID");
 
-        //@TODO Must fix when moving to this Intent, transfer over information and use it to display appropriate
         //@TODO information about the specific door and the actual person that will be accessing
         mListAccessView = (ListView) findViewById(R.id.access_ListView);
         UsersAccess.MyCustomAdapter customAdaptor = new UsersAccess.MyCustomAdapter();
@@ -139,19 +138,6 @@ public class UsersAccess extends AppCompatActivity {
         });
     }
 
-//    public void changeDoorStatus(View view) {
-//        boolean isDoorStatusOn = ((ToggleButton)view).isChecked();
-//        if(isDoorStatusOn){
-//            //Set text to "LOCKED" (off to on)
-//            //@TODO Must send signal to turn off
-//            Log.i("UserAccess Toggle", "Door locked!");
-//        }
-//        else{
-//            //Set text to "UNLOCKED" (on to off)
-//            //@TODO Must send signal to turn status on
-//            Log.i("UserAccess Toggle", "Door unlocked!");
-//        }
-//    }
 
     private class MyCustomAdapter extends BaseAdapter {
 
