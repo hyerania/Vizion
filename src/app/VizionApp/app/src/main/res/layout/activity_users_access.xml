@@ -15,18 +15,17 @@
         android:id="@+id/access_ListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/toggleBtnDoorStatus"
-        android:layout_alignEnd="@+id/btnAddUser"
-        android:layout_alignParentTop="true"></ListView>
+        android:layout_alignParentTop = "true"
+        android:layout_above="@+id/btnDoorStatus"
+        android:layout_alignParentStart="true"></ListView>
 
-    <ToggleButton
-        android:id="@+id/toggleBtnDoorStatus"
+    <Button
+        android:id="@+id/btnDoorStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:onClick="changeDoorStatus"
-        android:textOff="DOOR UNLOCKED"
-        android:textOn="DOOR LOCKED" />
+        android:layout_alignParentStart="true"
+        android:text="Unlocked" />
 
     <Button
         android:id="@+id/btnAddUser"
