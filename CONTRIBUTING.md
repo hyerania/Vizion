@@ -25,13 +25,18 @@ cd venvw/Scripts
 activate.bat
 cd ../..
 ```
-for Windows (I think.)
+for Windows (I think.) The windows environment may not have all the required packages. We didn't use it very much.
 
 Go into the source code folder `cd src` 
 
 Apply migrations
 ```
 python manage.py migrate
+```
+
+Preload some data into the db.
+```
+python manage.py loaddata data
 ```
 
 Run the server
@@ -44,31 +49,5 @@ python manage.py runserver [your_machines_ip_addr]:8000
 ```
 Note you might have to disable the firewall on your machine (Google is helpful).
 
-### Make changes to the code
-Since there is four of us, the best thing to do is each work on our own branch. Find a quick git tutorial to learn what these different terms mean. It can be somewhat complicated, but is EXTREMLY useful and good to know.
+### OpenCV
 
-Make sure you are in the repo folder and make a branch `git branch [myname]-work`
-
-Switch to that branch `git checkout [myname]-work`
-
-Make changes to the code.
-
-Track the changes in git `git add .`
-
-Commit the changes to the branch `git commit -m "[A short description of what changes you made]"`
-
-Switch back to your master branch `git checkout master`
-
-Merge your working branch into your master `git merge [myname]-work`
-
-Push the changes you just merged into your local master to the remote master branch `git push`
-
-All done!
-
-Next time you want to add some code start by pulling the most recent version (in case someone else added stuff) make sure you are on the master branch and run `git pull`
-
-Then either make a new branch `git branch [branchname]` or merge master into your work branch `git checkout [myname]-work` `git merge master`
-
-Hint: you don't type the []
-
-Hint 2: If there are any conflicts while merging code (the merge command fails and freaks out because two people changed the same thing) don't freak out. Just Google how to resolve git merge conflicts in the terminal and there should be plenty of helpful resources.
