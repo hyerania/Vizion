@@ -28,5 +28,5 @@ urlpatterns = [
     url(r'^turnoffled/$', turn_off_led, name="Turn Off LED"),
     url(r'^facelookup/$', face_lookup, name="Face Lookup"),
     url(r'^logon/$', logon, name="Log In"),
-    url(r'^getlocks/$', get_locks, name="Get Locks")
+    url(r'^getLocks/$', get_locks, name="Get Locks")
 ]

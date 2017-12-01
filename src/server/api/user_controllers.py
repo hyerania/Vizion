@@ -17,11 +17,11 @@ def get_locks(response):
         return JsonResponse()
 
     if lock_ids is not None:
-        for lock_id in loclock_idsks:
-            locks.add(Lock.object.all.get(id=lock_id))
+        for lock_id in lock_ids:
+            locks.append(Lock.objects.all().get(id=lock_id))
 
         for lock in locks:
-            locks_json.add({
+            locks_json.append({
                 'id': lock.id,
                 'location': lock.location,
                 'address': lock.address,
@@ -29,4 +29,4 @@ def get_locks(response):
             })
 
 
-    return JsonResponse(locks_json)
+    return JsonResponse({'locks': locks_json})
