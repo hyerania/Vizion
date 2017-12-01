@@ -35,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final String userEmail = getIntent().getStringExtra("currentUserEmail");
+//        Log.i(TAG, "Checking current logged in: " + userEmail);
 
+
+        //GET REQUEST
         etURL = (EditText) findViewById(R.id.etURL);
         sendButton = (Button) findViewById(R.id.sendButton);
         sendButton.setOnClickListener(new View.OnClickListener(){
@@ -50,11 +54,13 @@ public class MainActivity extends AppCompatActivity {
         btnTest.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                intent.putExtra("currentUserEmail", userEmail);
                 startActivity(intent);
             }
         });
     }
 
+    //Used for GET REQUEST
     private void sendRequestAndPrintResponse(String url) {
 //        mRequestQueue = Volley.newRequestQueue(this);
 //        mCache = new DiskBasedCache(getCacheDir(), 4*1024*1024);
