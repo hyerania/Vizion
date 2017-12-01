@@ -18,11 +18,17 @@ from django.contrib import admin
 from django.http import HttpResponse
 
 from api.led import turn_on_led, turn_off_led
-from api.facial_recognition import face_lookup
+from api.facial_recognition import face_lookup, lock_door, unlock_door
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^turnonled/$', turn_on_led, name="Turn On LED"),
     url(r'^turnoffled/$', turn_off_led, name="Turn Off LED"),
+<<<<<<< HEAD
     url(r'^facelookup/$', face_lookup, name="Face Lookup")
+=======
+    url(r'^facelookup/$', face_lookup, name="Face Lookup"),
+    url(r'^lockdoor/$', lock_door, name="Lock Door"),
+    url(r'^unlockdoor/$', unlock_door, name="Unlock Door")
+>>>>>>> 8f9d0724f1718d9db927fceefbfa0b9549f0f32e
 ]
