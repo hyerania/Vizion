@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from server.models import User, Lock
 
-def logon(request):
+def logon(response):
     logon = False
 
     try:
@@ -13,10 +13,11 @@ def logon(request):
 
     try:
         user = User.objects.all().get(email=requested_user_email)
-    except User.DoesNotExist, Lock.DoesNotExist:
-        try_compare = False
-
-        if (user.password == requested_user_password)
+        if (user.password == requested_user_password):
             logon = True
+    except User.DoesNotExist, Lock.DoesNotExist:
+        pass
+
+
 
     return JsonResponse({'login': logon})

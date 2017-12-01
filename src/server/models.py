@@ -13,12 +13,7 @@ class User(AbstractBaseUser, PermissionsMixin, models.Model):
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
     email = models.EmailField(_('email address'), unique=True)
-<<<<<<< HEAD
-
-    face_data = models.TextField(db_column='data', blank=True)
-=======
     state = models.CharField(max_length=40, default="unlocked")
->>>>>>> 8f9d0724f1718d9db927fceefbfa0b9549f0f32e
 
     # doorlock is ownership of a door
     doorlock = models.IntegerField(blank=True)

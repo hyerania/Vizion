@@ -33,8 +33,8 @@ def lock_door(response):
     user_success = False
     username = None
     lock_success = False
-    unlock = False
     try_compare = True
+    lock = False
 
     try:
         user = User.objects.all().get(id=response_user_id)
@@ -103,17 +103,12 @@ def unlock_door(response):
     })
 
 def face_lookup(response):
-<<<<<<< HEAD
     try:
         response_face_id = response.GET['faceid']
         response_lock_id = response.GET['lockid']
     except Exception:
         print(response.GET)
         return JsonResponse({"error": "invalid json data"})
-=======
-    response_face_id = response.GET['faceid']
-    response_lock_id = response.GET['lockid']
->>>>>>> 8f9d0724f1718d9db927fceefbfa0b9549f0f32e
 
     user_success = False
     username = None
