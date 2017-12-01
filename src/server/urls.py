@@ -19,7 +19,7 @@ from django.http import HttpResponse
 
 from api.led import turn_on_led, turn_off_led
 from api.facial_recognition import face_lookup, lock_door, unlock_door, lock_door_app, unlock_door_app
-from api.user_controllers import get_locks
+from api.user_controllers import get_locks, add_lock
 from authenticate import logon
 
 urlpatterns = [
@@ -32,7 +32,8 @@ urlpatterns = [
     url(r'^lockdoor/$', lock_door, name="Lock Door"),
     url(r'^unlockdoor/$', unlock_door, name="Unlock Door"),
     url(r'^lockdoorapp/$', lock_door_app, name="Lock Door"),
-    url(r'^unlockdoorapp/$', unlock_door_app, name="Unlock Door")
+    url(r'^unlockdoorapp/$', unlock_door_app, name="Unlock Door"),
+    url(r'^addlock/$', add_lock, name="Add Lock")
 
 
 ]
