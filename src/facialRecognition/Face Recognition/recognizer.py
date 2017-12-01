@@ -7,7 +7,7 @@ import requests
 # Variables
 # ----------------------------------------------------------------------------
 
-host = "10.231.48.228:8080"
+host = "192.168.1.13:8080"
 extension = "facelookup"
 url = "http://" + host + "/" + extension + "/"
 
@@ -38,7 +38,7 @@ def recognizeFaces():
         status, image = camera.read()
         grayImage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         faces = faceLocator.detectMultiScale(grayImage, 1.3, 5) # When a face is located
-        
+
         for (x, y, w, h) in faces:
             cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
             faceID, uncertainty = recognizer.predict(grayImage[y:y+h, x:x+w]) # Make a guess the correspondent ID of the face
@@ -54,7 +54,7 @@ def recognizeFaces():
         cv2.imshow("Image", image)
         if (cv2.waitKey(1) == ord("q")):
             break
-        
+
     camera.release()
     cv2.destroyAllWindows()
 
