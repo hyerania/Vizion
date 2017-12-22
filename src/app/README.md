@@ -16,3 +16,11 @@ Manager . For testing purposes, we used a Google Nexus 5 with Android version 5.
 8. In the Access activity page that is presented, the lower left side button allows you to unlock or lock the door.
    1. If the status shows Locked , this refers to the door being in a locked state. If the button is pressed then the door will unlock.
    2. If the status shows Unlocked , this refers to the door being in an unlocked state. If the button is pressed then the door will lock.
+
+### Vizion Simulated ###
+The application was simulated through a Google Nexus 5 and the following screenshots can be found of the actual application running ([Screenshots of Android Application](Screenshots/)):
+1. Login Activity: Log in screen to the Android App
+2. Dashboard Activity: Shows all the locks the user has access to
+3. Add Door Activity: Adds a door to the database for the current user logged in
+4. Access Activity: Lock level screen to show who has access to a particular lock with functionality to manually lock and unlock the door.
+5. Add User Activity: Adds users to that specific door in order to have access in unlocking the door through fcial recognition.
